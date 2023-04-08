@@ -15,18 +15,16 @@
       - Packaging : Jar
       - Java Version : 11
       - Dependencies
-          - Spring Boot (2.7.10ver)
+          - Spring Web
+          - Validation
           - Lombok
           - MySQL Driver
+          - H2 Database
           - Spring Data JPA
+          - Spring REST Docs
+          - Spring Boot Devtools
+          - Spring Security
           - 추후 추가
-  - 사용 기술
-      - MySQL 8.0
-      - Spring Data JPA (구현체는 Hibernate)
-      - Java11
-      - Spring Boot 2.7.10
-      - Gradle
-      - 추후 추가 
 
 <br>
 
