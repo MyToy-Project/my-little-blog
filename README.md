@@ -9,17 +9,17 @@
     
   - Spring Boot Starter
       - Project : Gradle Project
-      - Spring Boot Version : 2.6.8
+      - Spring Boot Version : 2.7.10
       - Group : com.project
       - Artifact: mlb
       - Packaging : Jar
       - Java Version : 11
       - Dependencies
-          - Spring Boot (2.7.2ver)
+          - Spring Boot (2.7.10ver)
           - Lombok
-          - Thymeleaf
           - MySQL Driver
-          - MyBatis Framework
+          - Spring Data JPA
+          - 추후 추가
   - 사용 기술
       - MySQL 8.0
       - Spring Data JPA (구현체는 Hibernate)
