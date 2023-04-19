@@ -44,4 +44,4 @@
 - 카테고리를 별도의 테이블로 분리함, 또한 카테고리의 계층을 구현하기 위해 계층형 테이블 구조로 변경함
 
 ## ✅ 최종 ERD
-![MyLittleBlog (1)](https://user-images.githubusercontent.com/66772624/232999726-b7fe8d36-4ba4-4c9c-bc0f-b629cdf0ae38.png)
+![MyLittleBlog (2)](https://user-images.githubusercontent.com/66772624/233004638-ce56399c-268f-4832-8b52-0a7e1a514846.png)
