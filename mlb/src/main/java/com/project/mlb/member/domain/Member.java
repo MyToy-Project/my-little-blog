@@ -32,5 +32,4 @@ public class Member {
     @Column(length = 50)
     private String phone;
 
-
 }
