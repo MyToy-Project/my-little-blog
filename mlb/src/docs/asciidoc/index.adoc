@@ -1,0 +1,24 @@
+= MY Little Blog API 명세
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 2
+:sectlinks:
+:sectnums:
+:docinfo: shared-head
+
+== 회원가입
+
+=== 회원가입
+==== 성공
+operation::member/signup/success[snippets='http-request,http-response']
+==== 실패
+===== 비밀번호 확인이 다른경우
+operation::member/signup/fail/invalidConfirmationPassword[snippets='http-request,http-response']
+===== 비밀번호 형식이 잘못된 경우
+operation::member/signup/fail/invalidPasswordFormat[snippets='http-request,http-response']
+===== 이미 존재하는 아이디인 경우
+operation::member/signup/fail/duplicatedLoginId[snippets='http-request,http-response']
+===== 이미 존재하는 닉네임인 경우
+operation::member/signup/fail/duplicatedNickname[snippets='http-request,http-response']

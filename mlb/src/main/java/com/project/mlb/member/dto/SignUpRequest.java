@@ -31,8 +31,8 @@ public class SignUpRequest {
 
     @Builder
     private SignUpRequest(final String username, final String nickname, final String loginId, final String password,
-                         final String passwordConfirmation,
-                         final String email, final String phone) {
+                          final String passwordConfirmation,
+                          final String email, final String phone) {
         this.username = username;
         this.nickname = nickname;
         this.loginId = loginId;

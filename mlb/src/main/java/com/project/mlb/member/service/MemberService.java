@@ -1,8 +1,8 @@
 package com.project.mlb.member.service;
 
 import com.project.mlb.member.domain.Member;
-import com.project.mlb.member.domain.Username;
 import com.project.mlb.member.domain.Password;
+import com.project.mlb.member.domain.Username;
 import com.project.mlb.member.domain.encryptor.Encryptor;
 import com.project.mlb.member.dto.SignUpRequest;
 import com.project.mlb.member.exception.DuplicateLoginIdException;
