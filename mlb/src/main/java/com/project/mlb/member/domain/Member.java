@@ -48,4 +48,32 @@ public class Member {
         this.phone = phone;
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public LoginId getLoginId() {
+        return loginId;
+    }
+
+    public Username getUsername() {
+        return username;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public Password getPassword() {
+        return password;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
 }

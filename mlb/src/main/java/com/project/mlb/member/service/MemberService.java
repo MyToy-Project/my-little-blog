@@ -37,6 +37,7 @@ public class MemberService {
                 .nickname(signUpRequest.getNickname())
                 .password(Password.of(encryptor, signUpRequest.getPassword()))
                 .email(signUpRequest.getEmail())
+                .phone(signUpRequest.getPhone())
                 .build();
         memberRepository.save(member);
     }

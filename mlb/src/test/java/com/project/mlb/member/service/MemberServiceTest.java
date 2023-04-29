@@ -3,12 +3,14 @@ package com.project.mlb.member.service;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
+import com.project.mlb.member.domain.Member;
 import com.project.mlb.member.domain.encryptor.Encryptor;
 import com.project.mlb.member.dto.SignUpRequest;
 import com.project.mlb.member.exception.DuplicateLoginIdException;
 import com.project.mlb.member.exception.DuplicateNicknameException;
 import com.project.mlb.member.exception.InvalidPasswordConfirmationException;
 import com.project.mlb.member.repository.MemberRepository;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -48,9 +50,15 @@ class MemberServiceTest {
     @Test
     void signUp() {
         memberService.signUp(signUpRequest);
-
-        assertThat(
-                memberRepository.findByLoginIdValueAndPasswordValue("test123", encryptor.encrypt("!Abc123123"))).isPresent();
+        Member findMember = memberRepository.findByLoginIdValueAndPasswordValue("test123", encryptor.encrypt("!Abc123123")).get();
+        Assertions.assertAll(
+                () -> assertThat(findMember.getLoginId().getValue()).isEqualTo("test123"),
+                () -> assertThat(findMember.getUsername().getValue()).isEqualTo(encryptor.encrypt("이호석")),
+                () -> assertThat(findMember.getNickname()).isEqualTo("키다리"),
+                () -> assertThat(findMember.getPassword().getValue()).isEqualTo(encryptor.encrypt("!Abc123123")),
+                () -> assertThat(findMember.getEmail()).isEqualTo("asdf@test.com"),
+                () -> assertThat(findMember.getPhone()).isEqualTo("010-0000-0000")
+        );
     }
 
     @DisplayName("회원가입시 비밀번호와 비밀번호 확인이 일치하지 않으면 회원가입을 실패한다.")
