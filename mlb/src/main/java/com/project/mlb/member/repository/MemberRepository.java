@@ -6,10 +6,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface MemberRepository extends JpaRepository<Member, Long> {
 
-    boolean existsByLoginId(final String loginId);
+    boolean existsByLoginIdValue(final String loginId);
 
     boolean existsByNickname(final String nickname);
 
-    Optional<Member> findByLoginIdAndPasswordValue(String loginId, String password);
+    Optional<Member> findByLoginIdValueAndPasswordValue(String loginId, String password);
 
 }
