@@ -1,7 +1,7 @@
 
 # My Little Blog는 블로그 API 서버입니다!
 ## ✅ API Docs (진행중)
-[MLB Api Docs (created by Spring Rest Docs)](mlb/src/main/resources/static/index.html)
+[MLB Api Docs (created by Spring Rest Docs)](https://mytoy-project.github.io/my-little-blog/mlb/src/main/resources/static/index.html)
 
 
 ## ✅ 사용 기술 분석 [2023/04/07 리뉴얼]
