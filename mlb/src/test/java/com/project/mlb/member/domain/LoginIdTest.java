@@ -11,13 +11,13 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 class LoginIdTest {
 
-    @DisplayName("로그인 아이디는 영문과 숫자로만(7 ~ 20자) 이루어져 있어야 하며, 반드시 영문으로 시작하지 않으면 예외가 발생한다.")
+    @DisplayName("로그인 아이디는 소문자 영문과 숫자로만(7 ~ 20자) 이루어져 있어야 하며, 반드시 영문으로 시작하지 않으면 예외가 발생한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"1asadf123", "asf_123", "as1223", "1234"})
+    @ValueSource(strings = {"1aSadf123", "asf_123", "as1223", "1234"})
     void create_exception_invalidLoginIdFormat(String invalidLoginId) {
         assertThatThrownBy(() -> LoginId.from(invalidLoginId))
                 .isInstanceOf(InvalidLoginIdFormatException.class)
-                .hasMessageContaining("로그인 아이디는 영문과 숫자로만(7 ~ 20자) 이루어져 있어야 하며, 반드시 영문으로 시작해야 합니다.");
+                .hasMessageContaining("로그인 아이디는 소문자 영문과 숫자로만(7 ~ 20자) 이루어져 있어야 하며, 반드시 영문으로 시작해야 합니다.");
     }
 
     @DisplayName("동일한 아이디라면 동등하다")
