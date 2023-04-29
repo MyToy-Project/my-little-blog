@@ -7,19 +7,19 @@ import lombok.Getter;
 @Getter
 public class SignUpRequest {
 
-    @NotBlank
+    @NotBlank(message = "아이디는 필수로 입력해야 합니다.")
     private String loginId;
 
-    @NotBlank
+    @NotBlank(message = "이름은 필수로 입력해야 합니다.")
     private String username;
 
-    @NotBlank
+    @NotBlank(message = "닉네임은 필수로 입력해야 합니다.")
     private String nickname;
 
-    @NotBlank
+    @NotBlank(message = "비밀번호는 필수로 입력해야 합니다.")
     private String password;
 
-    @NotBlank
+    @NotBlank(message = "비밀번호 확인은 필수로 입력해야 합니다.")
     private String passwordConfirmation;
 
     private String email;
