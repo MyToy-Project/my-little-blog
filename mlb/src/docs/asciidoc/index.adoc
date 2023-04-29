@@ -18,6 +18,8 @@ operation::member/signup/success[snippets='http-request,http-response']
 operation::member/signup/fail/invalidConfirmationPassword[snippets='http-request,http-response']
 ===== 비밀번호 형식이 잘못된 경우
 operation::member/signup/fail/invalidPasswordFormat[snippets='http-request,http-response']
+===== 아이디 형식이 잘못된 경우
+operation::member/signup/fail/invalidLoginIdFormat[snippets='http-request,http-response']
 ===== 이미 존재하는 아이디인 경우
 operation::member/signup/fail/duplicatedLoginId[snippets='http-request,http-response']
 ===== 이미 존재하는 닉네임인 경우

@@ -9,6 +9,7 @@ import static org.springframework.restdocs.operation.preprocess.Preprocessors.pr
 import com.project.mlb.member.dto.SignUpRequest;
 import com.project.mlb.member.exception.DuplicateLoginIdException;
 import com.project.mlb.member.exception.DuplicateNicknameException;
+import com.project.mlb.member.exception.InvalidLoginIdFormatException;
 import com.project.mlb.member.exception.InvalidPasswordConfirmationException;
 import com.project.mlb.member.exception.InvalidPasswordFormatException;
 import com.project.mlb.member.service.MemberService;
@@ -98,7 +99,7 @@ class MemberControllerTest {
                 .statusCode(HttpStatus.BAD_REQUEST.value());
     }
 
-    @DisplayName("비밀번호 형식이 다르다면 400 Bad Reqeust 반환")
+    @DisplayName("비밀번호 형식이 다르다면 400 Bad Request 반환")
     @Test
     void signUp_exception_invalidPasswordFormat() {
         SignUpRequest signUpRequest = SignUpRequest.builder()
@@ -122,6 +123,33 @@ class MemberControllerTest {
                 .then().log().all()
                 .assertThat()
                 .apply(document("member/signup/fail/invalidPasswordFormat"))
+                .statusCode(HttpStatus.BAD_REQUEST.value());
+    }
+
+    @DisplayName("아이디 형식이 다르다면 400 Bad Request 반환")
+    @Test
+    void signUp_exception_invalidLoginIdFormat() {
+        SignUpRequest signUpRequest = SignUpRequest.builder()
+                .loginId("123invalidLoginIdFormat")
+                .username("이호석")
+                .nickname("키다리")
+                .password("!Asdf1234")
+                .passwordConfirmation("!Asdf1234")
+                .email("test1234@test.com")
+                .phone("010-0000-0000")
+                .build();
+
+        doThrow(new InvalidLoginIdFormatException())
+                .when(memberService)
+                .signUp(any());
+
+        restDocs
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .body(signUpRequest)
+                .when().post("/api/v1/members")
+                .then().log().all()
+                .assertThat()
+                .apply(document("member/signup/fail/invalidLoginIdFormat"))
                 .statusCode(HttpStatus.BAD_REQUEST.value());
     }
 
