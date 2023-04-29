@@ -11,7 +11,7 @@ import lombok.Getter;
 @Embeddable
 public class LoginId {
 
-    private static final Pattern PATTERN = Pattern.compile("^[A-Za-z]{1}[A-Za-z0-9]{6,19}$");
+    private static final Pattern PATTERN = Pattern.compile("^[a-z]{1}[a-z0-9]{6,19}$");
 
     @Column(name = "loginId", length = 100, nullable = false, unique = true)
     private String value;
