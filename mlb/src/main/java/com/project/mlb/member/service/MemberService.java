@@ -1,5 +1,6 @@
 package com.project.mlb.member.service;
 
+import com.project.mlb.member.domain.LoginId;
 import com.project.mlb.member.domain.Member;
 import com.project.mlb.member.domain.Password;
 import com.project.mlb.member.domain.Username;
@@ -31,7 +32,7 @@ public class MemberService {
         validate(signUpRequest);
 
         Member member = Member.builder()
-                .loginId(signUpRequest.getLoginId())
+                .loginId(LoginId.from(signUpRequest.getLoginId()))
                 .username(Username.of(encryptor, signUpRequest.getUsername()))
                 .nickname(signUpRequest.getNickname())
                 .password(Password.of(encryptor, signUpRequest.getPassword()))
@@ -53,7 +54,7 @@ public class MemberService {
     }
 
     private void validateLoginId(final String loginId) {
-        if (memberRepository.existsByLoginId(loginId)) {
+        if (memberRepository.existsByLoginIdValue(loginId)) {
             throw new DuplicateLoginIdException();
         }
     }

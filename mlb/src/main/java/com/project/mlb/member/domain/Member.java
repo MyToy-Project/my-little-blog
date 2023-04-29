@@ -16,8 +16,8 @@ public class Member {
     @Column(name = "member_id")
     private Long id;
 
-    @Column(length = 100, nullable = false, unique = true)
-    private String loginId;
+    @Embedded
+    private LoginId loginId;
 
     @Embedded
     private Username username;
@@ -38,7 +38,7 @@ public class Member {
     }
 
     @Builder
-    public Member(final String loginId, final Username username, final String nickname, final Password password,
+    public Member(final LoginId loginId, final Username username, final String nickname, final Password password,
                   final String email, final String phone) {
         this.loginId = loginId;
         this.username = username;

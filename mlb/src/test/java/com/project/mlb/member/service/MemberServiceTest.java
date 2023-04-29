@@ -17,7 +17,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.transaction.annotation.Transactional;
 
 @SpringBootTest
-@Transactional(readOnly = true)
+@Transactional
 class MemberServiceTest {
 
     @Autowired
@@ -50,7 +50,7 @@ class MemberServiceTest {
         memberService.signUp(signUpRequest);
 
         assertThat(
-                memberRepository.findByLoginIdAndPasswordValue("test123", encryptor.encrypt("!Abc123123"))).isPresent();
+                memberRepository.findByLoginIdValueAndPasswordValue("test123", encryptor.encrypt("!Abc123123"))).isPresent();
     }
 
     @DisplayName("회원가입시 비밀번호와 비밀번호 확인이 일치하지 않으면 회원가입을 실패한다.")

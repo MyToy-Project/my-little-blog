@@ -1,11 +1,13 @@
 package com.project.mlb.member.domain;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatNoException;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import com.project.mlb.member.domain.encryptor.Encryptor;
 import com.project.mlb.member.exception.InvalidPasswordFormatException;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
 
@@ -26,6 +28,15 @@ class PasswordTest {
     void create_success_withValidFormat(String validPassword) {
         assertThatNoException()
                 .isThrownBy(() -> Password.of(new Encryptor(), validPassword));
+    }
+
+    @DisplayName("동일한 패스워드를 가지고 있다면 동등성이 보장된다.")
+    @Test
+    void equal_success_samePasswordValue() {
+        Password password1 = Password.of(new Encryptor(), "!Test1234");
+        Password password2 = Password.of(new Encryptor(), "!Test1234");
+
+        assertThat(password1).isEqualTo(password2);
     }
 
 }
