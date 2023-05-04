@@ -7,7 +7,7 @@ public class InvalidLoginIdFormatException extends BadRequestException {
     private static final String MESSAGE = "로그인 아이디는 소문자 영문과 숫자로만(7 ~ 20자) 이루어져 있어야 하며, 반드시 영문으로 시작해야 합니다.";
 
     public InvalidLoginIdFormatException() {
-        super(MESSAGE);
+        super(MESSAGE, MemberErrorCode.INVALID_LOGIN_ID_FORMAT.value());
     }
 
 }
